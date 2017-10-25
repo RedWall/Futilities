@@ -74,14 +74,6 @@ namespace Futilities
 
         }
 
-        public static string GetValue(this XElement element, string defaultValue = null) => element != null ? element.Value : defaultValue;
-
-        public static string GetValue(this XAttribute attribute, string defaultValue = null) => attribute != null ? attribute.Value : defaultValue;
-
-        public static T GetValue<T>(this XElement element, Func<XElement, T> func, T defaultValue = default(T)) => element != null ? func(element) : defaultValue;
-
-        public static T GetValue<T>(this XAttribute attribute, Func<XAttribute, T> func, T defaultValue = default(T)) => attribute != null ? func(attribute) : defaultValue;
-
         public static int ToInt(this string s) => s.To<int>();
 
         public static short ToShort(this string s) => s.To<short>();
