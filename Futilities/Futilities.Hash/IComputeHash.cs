@@ -1,4 +1,4 @@
-﻿namespace Futilities
+﻿namespace Futilities.Hashing
 {
     public interface IComputeHash
     {
