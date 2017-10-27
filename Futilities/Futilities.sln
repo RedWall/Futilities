@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities", "Futilities\Futilities.csproj", "{3001BC20-44A1-48B1-96D7-7EB71F9A9AB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.XmlExtensions", "Futilities.XmlExtensions\Futilities.XmlExtensions.csproj", "{0873385E-2420-4CBC-B97B-AF2E35143699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.XmlExtensions", "Futilities.XmlExtensions\Futilities.XmlExtensions.csproj", "{0873385E-2420-4CBC-B97B-AF2E35143699}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.StringConversion", "Futilities.StringConversion\Futilities.StringConversion.csproj", "{4AD6B46D-7703-49F8-ACB2-CF17A7EF2F95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0873385E-2420-4CBC-B97B-AF2E35143699}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0873385E-2420-4CBC-B97B-AF2E35143699}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0873385E-2420-4CBC-B97B-AF2E35143699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AD6B46D-7703-49F8-ACB2-CF17A7EF2F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD6B46D-7703-49F8-ACB2-CF17A7EF2F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD6B46D-7703-49F8-ACB2-CF17A7EF2F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD6B46D-7703-49F8-ACB2-CF17A7EF2F95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
