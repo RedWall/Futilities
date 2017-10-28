@@ -27,9 +27,7 @@ namespace Futilities.StringConversion.Tests
 
             Assert.IsTrue(result);
         }
-
-
-
+        
         [TestMethod]
         public void ToBool_Returns_defaultValue_When_Coversion_Fails()
         {
@@ -55,7 +53,7 @@ namespace Futilities.StringConversion.Tests
         [TestMethod]
         public void ToBool_Returns_True_When_alsoTrue_Contains_Value()
         {
-            string value = "Y";
+            string value = "y";
             string[] alsoTrue = { "Y", "X" };
 
             bool result = value.ToBool(alsoTrue: alsoTrue);
