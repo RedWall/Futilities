@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Futilities
+namespace Futilities.StringParsing
 {
     public class IgnoreCaseComparer : IEqualityComparer<string>
     {

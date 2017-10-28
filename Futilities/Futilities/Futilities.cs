@@ -18,42 +18,6 @@ namespace Futilities
     {
 
 
-        public static List<T> EnumToList<T>() => Enum.GetValues(typeof(T)).Cast<T>().ToList();
-
-        public static string Right(this string s, int Length)
-        {
-            if (s == null)
-                return s;
-
-            if (s.Length > Length)
-            {
-                return s.Substring(s.Length - Length);
-            }
-            else
-                return s;
-        }
-        public static string Left(this string s, int Length)
-        {
-            if (s == null)
-                return s;
-
-            if (s.Length > Length)
-            {
-                return s.Substring(0, Length);
-            }
-            else
-                return s;
-        }
-
-        public static IEqualityComparer<string> IgnoreCaseComparer => new IgnoreCaseComparer();
-
-        public static void Kill<T>(this List<T> list)
-        {
-
-            list.Clear();
-            list.TrimExcess();
-
-        }
 
     }
 }
