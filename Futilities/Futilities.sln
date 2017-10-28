@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities", "Futilities\Futilities.csproj", "{3001BC20-44A1-48B1-96D7-7EB71F9A9AB4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.XmlExtensions", "Futilities.XmlExtensions\Futilities.XmlExtensions.csproj", "{0873385E-2420-4CBC-B97B-AF2E35143699}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.StringConversion", "Futilities.StringConversion\Futilities.StringConversion.csproj", "{4AD6B46D-7703-49F8-ACB2-CF17A7EF2F95}"
@@ -15,9 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.Hash", "Futiliti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.StringParsing", "Futilities.StringParsing\Futilities.StringParsing.csproj", "{69A56440-0CF5-4AAF-9880-D9F41ADC9BDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.ListExtensions", "Futilities.ListExtensions\Futilities.ListExtensions.csproj", "{9E506A83-FC31-4196-859B-E07E76849CA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.ListExtensions", "Futilities.ListExtensions\Futilities.ListExtensions.csproj", "{9E506A83-FC31-4196-859B-E07E76849CA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.ObjectExtensions", "Futilities.ObjectExtensions\Futilities.ObjectExtensions.csproj", "{E79BF396-95DD-4A50-BFAC-513A9790A45A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.ObjectExtensions", "Futilities.ObjectExtensions\Futilities.ObjectExtensions.csproj", "{E79BF396-95DD-4A50-BFAC-513A9790A45A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.SequentialGuid", "Futilities.SequentialGuid\Futilities.SequentialGuid.csproj", "{EC5BFF99-91FF-4EDA-A9B9-992B38BBE027}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futiities.Outright", "Futiities.Outright\Futiities.Outright.csproj", "{DEA3DD9A-32EB-4DA8-A0E9-C7A126FA808A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +27,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3001BC20-44A1-48B1-96D7-7EB71F9A9AB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3001BC20-44A1-48B1-96D7-7EB71F9A9AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3001BC20-44A1-48B1-96D7-7EB71F9A9AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3001BC20-44A1-48B1-96D7-7EB71F9A9AB4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0873385E-2420-4CBC-B97B-AF2E35143699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0873385E-2420-4CBC-B97B-AF2E35143699}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0873385E-2420-4CBC-B97B-AF2E35143699}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +55,14 @@ Global
 		{E79BF396-95DD-4A50-BFAC-513A9790A45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E79BF396-95DD-4A50-BFAC-513A9790A45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E79BF396-95DD-4A50-BFAC-513A9790A45A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC5BFF99-91FF-4EDA-A9B9-992B38BBE027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC5BFF99-91FF-4EDA-A9B9-992B38BBE027}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC5BFF99-91FF-4EDA-A9B9-992B38BBE027}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC5BFF99-91FF-4EDA-A9B9-992B38BBE027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA3DD9A-32EB-4DA8-A0E9-C7A126FA808A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA3DD9A-32EB-4DA8-A0E9-C7A126FA808A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA3DD9A-32EB-4DA8-A0E9-C7A126FA808A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA3DD9A-32EB-4DA8-A0E9-C7A126FA808A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
