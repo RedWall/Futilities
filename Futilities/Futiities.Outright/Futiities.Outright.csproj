@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Futilities.FileIO\Futilities.FileIO.csproj" />
+    <ProjectReference Include="..\Futilities.Hash\Futilities.Hash.csproj" />
+    <ProjectReference Include="..\Futilities.ListExtensions\Futilities.ListExtensions.csproj" />
+    <ProjectReference Include="..\Futilities.ObjectExtensions\Futilities.ObjectExtensions.csproj" />
+    <ProjectReference Include="..\Futilities.SequentialGuid\Futilities.SequentialGuid.csproj" />
+    <ProjectReference Include="..\Futilities.StringConversion\Futilities.StringConversion.csproj" />
+    <ProjectReference Include="..\Futilities.StringParsing\Futilities.StringParsing.csproj" />
+    <ProjectReference Include="..\Futilities.XmlExtensions\Futilities.XmlExtensions.csproj" />
+  </ItemGroup>
+
+</Project>
