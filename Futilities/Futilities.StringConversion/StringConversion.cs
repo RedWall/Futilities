@@ -2,26 +2,28 @@
 using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace Futilities.StringConversion
 {
     public static class StringConversion
     {
 
-        public static bool ToBool(this string o, bool defaultValue = false)
+        public static bool ToBool(this string o, bool defaultValue = false, bool ignoreCase = true, params string[] alsoTrue)
         {
-            bool b = defaultValue;
 
             if (string.IsNullOrWhiteSpace(o))
+                return defaultValue;
+
+            if (bool.TryParse(o, out bool b))
                 return b;
 
-            if (!bool.TryParse(o, out b))
-            {
-                b = string.Compare(o, "YES", StringComparison.OrdinalIgnoreCase) == 0 || string.Compare(o, "Y", StringComparison.OrdinalIgnoreCase) == 0 || string.Compare(o, "U", StringComparison.OrdinalIgnoreCase) == 0;
-            }
+            if (alsoTrue.Any(t => string.Compare(t, o, ignoreCase) == 0))
+                return true;
 
-            return b;
+            return defaultValue;
         }
 
         public static int ToInt(this string s) => s.To<int>();
@@ -32,35 +34,41 @@ namespace Futilities.StringConversion
 
         public static double ToDouble(this string s) => s.To<double>();
 
-        public static DateTime ToDateTime(this string s, string Format = null, bool useSqlMinValue = false)
+        public static DateTime ToSqlDateTime(this string s, string format = null)
         {
-            DateTime d = DateTime.MinValue;
-
-            if (useSqlMinValue)
-                d = SqlDateTime.MinValue.Value;
-
-            try
-            {
-                return s.To<DateTime>(true);
-            }
-            catch
-            {
-
-                if (s != null && !string.IsNullOrWhiteSpace(Format))
-                    DateTime.TryParseExact(s, Format, DateTimeFormatInfo.InvariantInfo, DateTimeStyles.None, out d);
-
-            }
-            if (d == DateTime.MinValue)
-                d = SqlDateTime.MinValue.Value;
-            return d;
+            return ToDateTime(s, format, SqlDateTime.MinValue.Value);
         }
 
-        public static T To<T>(this string s) where T : IConvertible => s.To<T>(false);
-
-        public static T To<T>(this string s, bool ExceptionOnFailedConversion) where T : IConvertible
+        public static DateTime ToDateTime(this string s, string Format = null, DateTime defaultValue = default)
         {
+            if (string.IsNullOrWhiteSpace(s))
+                return defaultValue;
 
-            var conv = TypeDescriptor.GetConverter(typeof(T));
+            if (!string.IsNullOrWhiteSpace(Format) && DateTime.TryParseExact(s, Format, DateTimeFormatInfo.InvariantInfo, DateTimeStyles.None, out DateTime dEx))
+                return dEx;
+
+            if (DateTime.TryParse(s, out DateTime d))
+                return d;
+
+            return defaultValue;
+        }
+
+        public static T To<T>(this string s, T defaultValue = default, bool throwExceptionOnFailedConversion = false) where T : IConvertible
+        {
+            Type tType = typeof(T);
+
+            switch (defaultValue)
+            {
+                case bool def:
+                    var b = s.ToBool((bool)Convert.ChangeType(defaultValue, typeof(bool)));
+
+                    return (T)Convert.ChangeType(b, tType);
+                case DateTime def:
+                    var d = s.ToDateTime(defaultValue: (DateTime)Convert.ChangeType(defaultValue, typeof(DateTime)));
+                    return (T)Convert.ChangeType(d, tType);
+            }
+
+            var conv = TypeDescriptor.GetConverter(tType);
 
             try
             {
@@ -68,10 +76,10 @@ namespace Futilities.StringConversion
             }
             catch
             {
-                if (ExceptionOnFailedConversion)
-                    throw new InvalidCastException(string.Format("Cannot convert provided System.string to {0}", TypeDescriptor.GetClassName(typeof(T))));
+                if (throwExceptionOnFailedConversion)
+                    throw new InvalidCastException(string.Format("Cannot convert provided System.string to {0}", TypeDescriptor.GetClassName(tType)));
 
-                return default(T);
+                return default;
             }
         }
 

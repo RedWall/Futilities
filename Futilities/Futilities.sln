@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.ListExtensions",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.ObjectExtensions", "Futilities.ObjectExtensions\Futilities.ObjectExtensions.csproj", "{E79BF396-95DD-4A50-BFAC-513A9790A45A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.SequentialGuid", "Futilities.SequentialGuid\Futilities.SequentialGuid.csproj", "{EC5BFF99-91FF-4EDA-A9B9-992B38BBE027}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.SequentialGuid", "Futilities.SequentialGuid\Futilities.SequentialGuid.csproj", "{EC5BFF99-91FF-4EDA-A9B9-992B38BBE027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futiities.Outright", "Futiities.Outright\Futiities.Outright.csproj", "{DEA3DD9A-32EB-4DA8-A0E9-C7A126FA808A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futiities.Outright", "Futiities.Outright\Futiities.Outright.csproj", "{DEA3DD9A-32EB-4DA8-A0E9-C7A126FA808A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.StringConversion.Tests", "Futilities.StringConversion.Tests\Futilities.StringConversion.Tests.csproj", "{305C3D40-75D4-4957-8FB1-43AE8BE2931F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{DEA3DD9A-32EB-4DA8-A0E9-C7A126FA808A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEA3DD9A-32EB-4DA8-A0E9-C7A126FA808A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEA3DD9A-32EB-4DA8-A0E9-C7A126FA808A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{305C3D40-75D4-4957-8FB1-43AE8BE2931F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{305C3D40-75D4-4957-8FB1-43AE8BE2931F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{305C3D40-75D4-4957-8FB1-43AE8BE2931F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{305C3D40-75D4-4957-8FB1-43AE8BE2931F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
