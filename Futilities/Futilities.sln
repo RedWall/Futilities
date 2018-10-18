@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futiities.Outright", "Futii
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.StringConversion.Tests", "Futilities.StringConversion.Tests\Futilities.StringConversion.Tests.csproj", "{305C3D40-75D4-4957-8FB1-43AE8BE2931F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.Temporal", "Futilities.Temporal\Futilities.Temporal.csproj", "{EB5343B5-503D-4267-A175-CDF00F394E17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.Temporal", "Futilities.Temporal\Futilities.Temporal.csproj", "{EB5343B5-503D-4267-A175-CDF00F394E17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.Enums", "Futilities.Enums\Futilities.Enums.csproj", "{5335CF7F-0FEA-43C1-996D-5B74DF4FB929}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{EB5343B5-503D-4267-A175-CDF00F394E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB5343B5-503D-4267-A175-CDF00F394E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB5343B5-503D-4267-A175-CDF00F394E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5335CF7F-0FEA-43C1-996D-5B74DF4FB929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5335CF7F-0FEA-43C1-996D-5B74DF4FB929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5335CF7F-0FEA-43C1-996D-5B74DF4FB929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5335CF7F-0FEA-43C1-996D-5B74DF4FB929}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
