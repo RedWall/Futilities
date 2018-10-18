@@ -6,8 +6,6 @@ namespace Futilities.ListExtensions
 {
     public static class ListExtensions
     {
-        public static List<T> EnumToList<T>() => Enum.GetValues(typeof(T)).Cast<T>().ToList();
-
         public static void Kill<T>(this List<T> list)
         {
 
