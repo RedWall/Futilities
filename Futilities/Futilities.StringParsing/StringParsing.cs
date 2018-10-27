@@ -6,7 +6,9 @@ namespace Futilities.StringParsing
 {
     public static class StringParsing
     {
+        [Obsolete("Please use the built-in case-insensitive comparer: System.StringComparer.OrdinalIgnoreCase", false)]
         public static IEqualityComparer<string> IgnoreCaseComparer => new IgnoreCaseComparer();
+
         public static string Substring(this string input, int start, int? length = null, bool trim = true, bool returnNullForEmptyValues = true)
         {
             string output = string.Empty;
@@ -29,9 +31,7 @@ namespace Futilities.StringParsing
                 output = null;
 
             return output;
-
         }
-
 
         public static bool TrySplit(this string input, out List<string> output, char delimiter = ',', bool hasQuotedFields = true, List<string> commentTokens = null, bool returnNullForEmptyValues = false)
         {
@@ -94,7 +94,6 @@ namespace Futilities.StringParsing
                     }
                 }
 
-
                 return true;
             }
             catch
@@ -114,8 +113,11 @@ namespace Futilities.StringParsing
                 return s.Substring(s.Length - Length);
             }
             else
+            {
                 return s;
+            }
         }
+
         public static string Left(this string s, int Length)
         {
             if (s == null)
@@ -126,7 +128,9 @@ namespace Futilities.StringParsing
                 return s.Substring(0, Length);
             }
             else
+            {
                 return s;
+            }
         }
     }
 }
