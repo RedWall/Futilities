@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Futilities.Enums\Futilities.Enums.csproj" />
     <ProjectReference Include="..\Futilities.FileIO\Futilities.FileIO.csproj" />
     <ProjectReference Include="..\Futilities.Hash\Futilities.Hash.csproj" />
     <ProjectReference Include="..\Futilities.ListExtensions\Futilities.ListExtensions.csproj" />
