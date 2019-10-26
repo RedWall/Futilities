@@ -54,18 +54,15 @@ namespace Futilities.Temporal
                 return false;
 
             var hour = rx.Groups["hour"];
-            string hh = string.Empty;
             var min = rx.Groups["minute"];
-            string mm = string.Empty;
             var sec = rx.Groups["second"];
             string ss = "00";
             var pr = rx.Groups["period"];
 
-            int h = -1;
-
-            if (hour.Length == 0 || !int.TryParse(hour.Value, out h) || h < 0 || h > 24)
+            if (hour.Length == 0 || !int.TryParse(hour.Value, out int h) || h < 0 || h > 24)
                 return false;
 
+            string hh;
             if (h == 0)
                 hh = "00";
             else if (h >= 12)
@@ -78,11 +75,10 @@ namespace Futilities.Temporal
                 hh = h.ToString().PadLeft(2, '0');
             }
 
-            int m = -1;
-            if (min.Length != 2 || !int.TryParse(min.Value, out m) || m < 0 || m > 59)
+            if (min.Length != 2 || !int.TryParse(min.Value, out int m) || m < 0 || m > 59)
                 return false;
 
-            mm = m.ToString().PadLeft(2, '0');
+            string mm = m.ToString().PadLeft(2, '0');
 
             if (sec.Length == 2)
                 ss = sec.Value;
