@@ -44,7 +44,7 @@ namespace Futilities.ObjectExtensions
         public static V GetValue<T, V>(this T obj, Expression<Func<T, V>> selector)
         {
 
-            V value = default(V);
+            V value = default;
 
             object target = obj;
 
@@ -68,7 +68,7 @@ namespace Futilities.ObjectExtensions
             var memberToGet = target.GetType().GetMember(bits.Last());
 
             if (memberToGet == null || memberToGet.Length == 0)
-                return default(V);
+                return default;
 
             if (memberToGet[0].MemberType == MemberTypes.Property)
                 return (V)((PropertyInfo)memberToGet[0]).GetValue(target);
