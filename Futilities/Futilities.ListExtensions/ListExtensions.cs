@@ -19,7 +19,7 @@ namespace Futilities.ListExtensions
             if (index.HasValue && index.Value >= 0 && list.Count() > index.Value)
                 return list[index.Value];
 
-            return default(T);
+            return default;
         }
     }
 }
