@@ -45,7 +45,7 @@ namespace Futilities.StringConversion.Tests
             string value = "Q";
             bool defaultValue = true;
 
-            bool result = value.To<bool>(defaultValue);
+            bool result = value.To(defaultValue);
 
             Assert.IsTrue(result);
         }

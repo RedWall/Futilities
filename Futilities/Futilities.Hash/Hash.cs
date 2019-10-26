@@ -14,7 +14,7 @@ namespace Futilities.Hashing
         public static void SetHash<T>(this T obj, Expression<Func<T, string>> selector) where T : IComputeHash
         {
             var p = (PropertyInfo)((MemberExpression)selector.Body).Member;
-            p.SetValue(obj, ComputeHash<T>(obj));
+            p.SetValue(obj, ComputeHash(obj));
         }
 
         public static string ComputeHash<T>(this T obj) where T : IComputeHash

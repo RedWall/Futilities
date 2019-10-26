@@ -64,7 +64,7 @@ namespace Futilities.Enums
         }
 
 
-        public static Nullable<T> GetEnumValueOrNull<T>(this int? value) where T : struct, IConvertible
+        public static T? GetEnumValueOrNull<T>(this int? value) where T : struct, IConvertible
         {
             if (!value.HasValue)
                 return null;
@@ -82,7 +82,7 @@ namespace Futilities.Enums
                 return null;
         }
 
-        public static Nullable<T> GetEnumValueOrNull<T>(this int value) where T : struct, IConvertible
+        public static T? GetEnumValueOrNull<T>(this int value) where T : struct, IConvertible
         {
             return GetEnumValueOrNull<T>((int?)value);
         }

@@ -96,11 +96,13 @@ namespace Futilities.StringParsing
 
                 return true;
             }
-            catch
+#pragma warning disable CA1031 // Do not catch general exception types
+            catch (Exception)
             {
                 output = null;
                 return false;
             }
+#pragma warning restore CA1031 // Do not catch general exception types
         }
 
         public static string Right(this string s, int Length)
