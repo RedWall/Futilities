@@ -29,7 +29,7 @@ namespace Futilities.XmlExtensions
         /// <param name="func">transform function for element</param>
         /// <param name="defaultValue">Value to return if element is null (default: default(T))</param>
         /// <returns>T value of XElement</returns>
-        public static T GetValue<T>(this XElement element, Func<XElement, T> func, T defaultValue = default(T)) => element != null ? func(element) : defaultValue;
+        public static T GetValue<T>(this XElement element, Func<XElement, T> func, T defaultValue = default) => element != null ? func(element) : defaultValue;
 
         /// <summary>
         /// Safely get the value of an XAttribute. Handles the null checking for you.
@@ -39,6 +39,6 @@ namespace Futilities.XmlExtensions
         /// <param name="func">transform function for attribute</param>
         /// <param name="defaultValue">Value to return if attribute is null (default: default(T))</param>
         /// <returns>T value XAttribute</returns>
-        public static T GetValue<T>(this XAttribute attribute, Func<XAttribute, T> func, T defaultValue = default(T)) => attribute != null ? func(attribute) : defaultValue;
+        public static T GetValue<T>(this XAttribute attribute, Func<XAttribute, T> func, T defaultValue = default) => attribute != null ? func(attribute) : defaultValue;
     }
 }
