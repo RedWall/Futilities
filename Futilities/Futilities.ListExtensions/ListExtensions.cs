@@ -14,12 +14,12 @@ namespace Futilities.ListExtensions
 
         }
 
-        public static T GetValueOrDefault<T>(this List<T> list, int? index)
+        public static T GetValueOrDefault<T>(this List<T> list, int index, T defaultValue = default)
         {
-            if (index.HasValue && index.Value >= 0 && list.Count() > index.Value)
-                return list[index.Value];
+            if (list.Count() > index)
+                return list[index];
 
-            return default;
+            return defaultValue;
         }
     }
 }
