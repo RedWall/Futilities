@@ -9,19 +9,27 @@ namespace Futilities.StringParsing
         [Obsolete("Please use the built-in case-insensitive comparer: System.StringComparer.OrdinalIgnoreCase", false)]
         public static IEqualityComparer<string> IgnoreCaseComparer => new IgnoreCaseComparer();
 
-        public static string Substring(this string input, int start, int? length = null, bool trim = true, bool returnNullForEmptyValues = true)
+        public static string SafeSubstring(this string input, int start, int? length = null, bool trim = true, bool returnNullForEmptyValues = true)
         {
+            if (string.IsNullOrEmpty(input))
+                return input;
+
             string output = string.Empty;
 
             if (length.HasValue)
             {
                 if (input.Length >= start + length.Value)
                     output = input.Substring(start, length.Value);
+                else
+                    output = input;
+            }
+            else if (input.Length > start)
+            {
+                    output = input.Substring(start);
             }
             else
             {
-                if (input.Length > start)
-                    output = input.Substring(start);
+                output = input;
             }
 
             if (trim)
@@ -57,8 +65,11 @@ namespace Futilities.StringParsing
                     }
 
                     // first char quote?
-                    if (!hasQuotedFields || field[0] != '"')
+                    if (!hasQuotedFields || field[0] != '"' || field[^1] == '"')
                     {
+                        if (hasQuotedFields)
+                            field = field.Replace("\"", string.Empty);
+
                         string value = field.Trim();
 
                         if (returnNullForEmptyValues && value.Length == 0)
@@ -94,15 +105,14 @@ namespace Futilities.StringParsing
                     }
                 }
 
+
                 return true;
             }
-#pragma warning disable CA1031 // Do not catch general exception types
-            catch (Exception)
+            catch
             {
                 output = null;
                 return false;
             }
-#pragma warning restore CA1031 // Do not catch general exception types
         }
 
         public static string Right(this string s, int Length)
