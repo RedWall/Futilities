@@ -27,9 +27,9 @@ namespace Futilities.StringConversion.Tests
 
             Assert.IsTrue(result);
         }
-        
+
         [TestMethod]
-        public void ToBool_Returns_defaultValue_When_Coversion_Fails()
+        public void ToBool_Returns_defaultValue_When_Conversion_Fails()
         {
             string value = "Q";
             bool defaultValue = true;
@@ -40,7 +40,7 @@ namespace Futilities.StringConversion.Tests
         }
 
         [TestMethod]
-        public void Generic_To_Bool_Returns_defaultValue_When_Coversion_Fails()
+        public void Generic_To_Bool_Returns_defaultValue_When_Conversion_Fails()
         {
             string value = "Q";
             bool defaultValue = true;
