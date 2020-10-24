@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Version>0.0.1-pre</Version>
     <Company>Red Wall LLC</Company>
-    <Description>A hand full of sometimes helpfurl extension methods</Description>
+    <Description>A hand full of sometimes helpful extension methods</Description>
   </PropertyGroup>
 
   <ItemGroup>

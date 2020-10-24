@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 
@@ -133,6 +134,19 @@ namespace Futilities.StringConversion
             time = $"{hh}:{mm}:{ss}";
 
             return true;
+        }
+
+        public static Guid CreateGuid(this string s)
+        {
+            byte[] stringbytes = Encoding.UTF8.GetBytes(s);
+            byte[] hashedBytes = new System.Security
+                                           .Cryptography
+                                           .SHA1CryptoServiceProvider()
+                                           .ComputeHash(stringbytes);
+
+            Array.Resize(ref hashedBytes, 16);
+
+            return new Guid(hashedBytes);
         }
     }
 }
