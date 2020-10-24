@@ -16,7 +16,7 @@ namespace Futilities.ListExtensions
 
         public static T GetValueOrDefault<T>(this List<T> list, int index, T defaultValue = default)
         {
-            if (list.Count() > index)
+            if (list.Count > index)
                 return list[index];
 
             return defaultValue;
