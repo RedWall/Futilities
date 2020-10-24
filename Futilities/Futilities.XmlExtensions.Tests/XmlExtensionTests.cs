@@ -86,83 +86,83 @@ namespace Futilities.XmlExtensions.Tests
             Assert.AreEqual(result, 5);
         }
 
-        //[TestMethod]
-        //public void GetText_ReturnsNull_WhenTextDoesNotExist()
-        //{
-        //    var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement><NestedElement></NestedElement></RootElement>");
+        [TestMethod]
+        public void GetText_ReturnsNull_WhenTextDoesNotExist()
+        {
+            var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement><NestedElement></NestedElement></RootElement>");
 
-        //    var result = xml.Elements().FirstOrDefault().GetText();
+            var result = xml.Elements().FirstOrDefault().GetText();
 
-        //    Assert.IsNull(result);
-        //}
+            Assert.IsNull(result);
+        }
 
-        //[TestMethod]
-        //public void GetText_ReturnsNodeText_WhenTextExists()
-        //{
-        //    var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement>Some Text<NestedElement></NestedElement></RootElement>");
+        [TestMethod]
+        public void GetText_ReturnsNodeText_WhenTextExists()
+        {
+            var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement>Some Text<NestedElement></NestedElement></RootElement>");
 
-        //    var result = xml.Elements().FirstOrDefault().GetText();
+            var result = xml.Elements().FirstOrDefault().GetText();
 
-        //    Assert.AreEqual(result, "Some Text");
-        //}
+            Assert.AreEqual(result, "Some Text");
+        }
 
-        //[TestMethod]
-        //public void GetText_ReturnsFirstNodeText_WhenMultipleTextExists()
-        //{
-        //    var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement>Pre Text<NestedElement></NestedElement>Post Text</RootElement>");
+        [TestMethod]
+        public void GetText_ReturnsFirstNodeText_WhenMultipleTextExists()
+        {
+            var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement>Pre Text<NestedElement></NestedElement>Post Text</RootElement>");
 
-        //    var result = xml.Elements().FirstOrDefault().GetText();
+            var result = xml.Elements().FirstOrDefault().GetText();
 
-        //    Assert.AreEqual(result, "Pre Text");
-        //}
+            Assert.AreEqual(result, "Pre Text");
+        }
 
-        //[TestMethod]
-        //public void GetAllText_ReturnsEmptyCollection_WhenNoTextExists()
-        //{
-        //    var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement><NestedElement></NestedElement></RootElement>");
+        [TestMethod]
+        public void GetAllText_ReturnsEmptyCollection_WhenNoTextExists()
+        {
+            var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement><NestedElement></NestedElement></RootElement>");
 
-        //    var result = xml.Elements().FirstOrDefault().GetAllText().ToList();
+            var result = xml.Elements().FirstOrDefault().GetAllText().ToList();
 
-        //    Assert.AreEqual(result.Count(), 0);
-        //}
+            Assert.AreEqual(result.Count(), 0);
+        }
 
-        //[TestMethod]
-        //public void GetAllText_ReturnsAllNodeText_WhenMultipleTextExists()
-        //{
-        //    var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement>Pre Text<NestedElement></NestedElement>Post Text</RootElement>");
+        [TestMethod]
+        public void GetAllText_ReturnsAllNodeText_WhenMultipleTextExists()
+        {
+            var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement>Pre Text<NestedElement></NestedElement>Post Text</RootElement>");
 
-        //    var result = xml.Elements().FirstOrDefault().GetAllText().ToList();
+            var result = xml.Elements().FirstOrDefault().GetAllText().ToList();
 
-        //    Assert.AreEqual(result.Count(), 2);
+            Assert.AreEqual(result.Count(), 2);
 
-        //    Assert.AreEqual(result[0], "Pre Text");
+            Assert.AreEqual(result[0], "Pre Text");
 
-        //    Assert.AreEqual(result[1], "Post Text");
-        //}
+            Assert.AreEqual(result[1], "Post Text");
+        }
 
-        //[TestMethod]
-        //public void GetAllText_ReturnsText_WhenOnlyPostTextExists()
-        //{
-        //    var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement><NestedElement></NestedElement>Post Text</RootElement>");
+        [TestMethod]
+        public void GetAllText_ReturnsText_WhenOnlyPostTextExists()
+        {
+            var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement><NestedElement></NestedElement>Post Text</RootElement>");
 
-        //    var result = xml.Elements().FirstOrDefault().GetAllText().ToList();
+            var result = xml.Elements().FirstOrDefault().GetAllText().ToList();
 
-        //    Assert.AreEqual(result.Count(), 1);
+            Assert.AreEqual(result.Count(), 1);
 
-        //    Assert.AreEqual(result[0], "Post Text");
-        //}
+            Assert.AreEqual(result[0], "Post Text");
+        }
 
-        //[TestMethod]
-        //public void GetAllText_ReturnsAllNodeText_WhenMultipleTextAndMultipleElementsExists()
-        //{
-        //    var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement>Pre Text<NestedElement></NestedElement>Middle Text<NestedElement></NestedElement>Post Text</RootElement>");
+        [TestMethod]
+        public void GetAllText_ReturnsAllNodeText_WhenMultipleTextAndMultipleElementsExists()
+        {
+            var xml = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf - 8\"?><RootElement>Pre Text<NestedElement></NestedElement>Middle Text<NestedElement></NestedElement>Post Text</RootElement>");
 
-        //    var result = xml.Elements().FirstOrDefault().GetAllText().ToList();
+            var result = xml.Elements().FirstOrDefault().GetAllText().ToList();
 
-        //    Assert.AreEqual(result.Count(), 3);
-        //    Assert.AreEqual(result[0], "Pre Text");
-        //    Assert.AreEqual(result[1], "Middle Text");
-        //    Assert.AreEqual(result[2], "Post Text");
-        //}
+            Assert.AreEqual(result.Count(), 3);
+            Assert.AreEqual(result[0], "Pre Text");
+            Assert.AreEqual(result[1], "Middle Text");
+            Assert.AreEqual(result[2], "Post Text");
+        }
     }
 }
