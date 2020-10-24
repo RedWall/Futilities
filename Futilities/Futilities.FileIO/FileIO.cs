@@ -8,6 +8,9 @@ namespace Futilities.FileIO
     {
         public static string GetFileCheckSum(this FileInfo File)
         {
+            if (File is null)
+                throw new ArgumentNullException(nameof(File));
+
             if (!File.Exists)
                 throw new FileNotFoundException("Unable to locate file", File.Name);
 
