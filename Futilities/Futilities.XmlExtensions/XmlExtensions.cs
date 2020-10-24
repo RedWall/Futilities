@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 
 namespace Futilities.XmlExtensions
@@ -40,5 +42,28 @@ namespace Futilities.XmlExtensions
         /// <param name="defaultValue">Value to return if attribute is null (default: default(T))</param>
         /// <returns>T value XAttribute</returns>
         public static T GetValue<T>(this XAttribute attribute, Func<XAttribute, T> func, T defaultValue = default) => attribute != null ? func(attribute) : defaultValue;
+
+        /// <summary>
+        /// Gets the value of the first text node within the XElement
+        /// </summary>
+        /// <param name="element">this attribute</param>
+        /// <returns>The first text value or null if there are none</returns>
+        public static string GetText(this XElement element)
+        {
+            return GetAllText(element).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets the value of all text nodes within the XElement
+        /// </summary>
+        /// <param name="element">this attribute</param>
+        /// <returns>Collection of text values</returns>
+        public static IEnumerable<string> GetAllText(this XElement element)
+        {
+            foreach (var node in element.Nodes().Where(n => n.NodeType == System.Xml.XmlNodeType.Text))
+            {
+                yield return (node as XText).Value;
+            }
+        }
     }
 }
