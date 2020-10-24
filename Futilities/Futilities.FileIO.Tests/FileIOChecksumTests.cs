@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -23,12 +25,6 @@ namespace Futilities.FileIO.Tests
                 FileInfo value = null;
                 string result = value.GetFileCheckSum();
             });
-
-            Assert.ThrowsException<ArgumentNullException>(() =>
-            {
-                FileInfo value = new FileInfo(null);
-                string result = value.GetFileCheckSum();
-            });
         }
 
         [TestMethod]
@@ -40,16 +36,6 @@ namespace Futilities.FileIO.Tests
             Assert.ThrowsException<FileNotFoundException>(() =>
             {
                 FileInfo value = new FileInfo(fakeFileName);
-                string result = value.GetFileCheckSum();
-            });
-        }
-
-        [TestMethod]
-        public void GetFileIOChecksum_Throws_ArgumentException()
-        {
-            Assert.ThrowsException<ArgumentException>(() =>
-            {
-                FileInfo value = new FileInfo(string.Empty);
                 string result = value.GetFileCheckSum();
             });
         }
@@ -71,6 +57,7 @@ namespace Futilities.FileIO.Tests
             Assert.AreEqual(expected, result);
         }
 
+        [ExcludeFromCodeCoverage]
         private bool TryGetTestProperty<T>(string methodName, string propertyName, out T propertyValue)
         {
             try
@@ -82,6 +69,7 @@ namespace Futilities.FileIO.Tests
                 IEnumerable<TestPropertyAttribute> attribute = methodInfo.GetCustomAttributes<TestPropertyAttribute>();
 
                 var value = attribute.FirstOrDefault(a => a.Name == propertyName)?.Value ?? null;
+
                 propertyValue = (T)Convert.ChangeType(value, typeof(T));
 
                 if (value is null)
