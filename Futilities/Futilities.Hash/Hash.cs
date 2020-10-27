@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Futilities.Hashing
 {
@@ -35,6 +36,21 @@ namespace Futilities.Hashing
                     return BitConverter.ToString(bytes);
                 }
             }
+        }
+
+        /// <summary>
+        /// Hashes a string using <see cref="SHA256"></see>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns>A string hashed using <see cref="SHA256"></see></returns>
+        public static string ToSHA256(this string value)
+        {
+            if (value is null)
+                throw new ArgumentNullException(nameof(value));
+
+            using var hash = SHA256.Create();
+            return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(value)).Select(i => i.ToString("x2")));
         }
     }
 }
