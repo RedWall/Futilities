@@ -31,15 +31,11 @@ namespace Futilities.FileIO
             {
                 case HashingAlgorithm.MD5:
                     using (var md5 = MD5.Create())
-                    {
                         return BitConverter.ToString(md5.ComputeHash(stream));
-                    }
 
                 case HashingAlgorithm.SHA1:
                     using (var sha1 = SHA1.Create())
-                    {
                         return BitConverter.ToString(sha1.ComputeHash(stream));
-                    }
                 default:
                     throw new ArgumentException("Invalid hashing algorithm selected.", nameof(hashingAlgorithm));
             }
