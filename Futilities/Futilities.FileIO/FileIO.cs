@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 
 namespace Futilities.FileIO
 {
-    public static partial class FileIO
+    public static class FileIO
     {
         public static string GetFileCheckSum(this FileInfo File, HashingAlgorithm hashingAlgorithm = HashingAlgorithm.MD5)
         {
