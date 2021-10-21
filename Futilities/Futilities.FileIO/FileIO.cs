@@ -6,6 +6,17 @@ namespace Futilities.FileIO
 {
     public static class FileIO
     {
+        /// <summary>
+        ///     Gets the checksum for a specified file. Supports MD5 and SHA1.
+        /// </summary>
+        /// <param name="File">The file to get the checksum for</param>
+        /// <param name="hashingAlgorithm">The hashing algorithm to use</param>
+        /// <returns>
+        ///     The file's hash in hexadecimal pairs separated by hyphens.
+        /// </returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="FileNotFoundException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public static string GetFileCheckSum(this FileInfo File, HashingAlgorithm hashingAlgorithm = HashingAlgorithm.MD5)
         {
             if (File is null)
