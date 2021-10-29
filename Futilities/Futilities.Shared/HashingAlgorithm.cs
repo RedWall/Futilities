@@ -1,4 +1,4 @@
-﻿namespace Futilities.FileIO
+﻿namespace Futilities.Shared
 {
     public enum HashingAlgorithm
     {

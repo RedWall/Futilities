@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.XmlExtensions.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.ObjectExtensions.Tests", "Futilities.ObjectExtensions.Tests\Futilities.ObjectExtensions.Tests.csproj", "{89C545FC-4258-4E4C-BB1E-5157A912FB8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.Shared", "Futilities.Shared\Futilities.Shared.csproj", "{7287F88F-EE22-47A1-B17C-804E0479CC75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{89C545FC-4258-4E4C-BB1E-5157A912FB8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89C545FC-4258-4E4C-BB1E-5157A912FB8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89C545FC-4258-4E4C-BB1E-5157A912FB8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7287F88F-EE22-47A1-B17C-804E0479CC75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7287F88F-EE22-47A1-B17C-804E0479CC75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7287F88F-EE22-47A1-B17C-804E0479CC75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7287F88F-EE22-47A1-B17C-804E0479CC75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

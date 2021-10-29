@@ -6,4 +6,8 @@
     <Authors>Red Wall LLC</Authors>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Futilities.Shared\Futilities.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
