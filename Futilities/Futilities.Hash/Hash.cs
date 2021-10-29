@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Futilities.Shared;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,13 +13,13 @@ namespace Futilities.Hashing
 {
     public static class Hash
     {
-        public static void SetHash<T>(this T obj, Expression<Func<T, string>> selector) where T : IComputeHash
+        public static void SetHash<T>(this T obj, Expression<Func<T, string>> selector, HashingAlgorithm algorithm = HashingAlgorithm.MD5) where T : IComputeHash
         {
             var p = (PropertyInfo)((MemberExpression)selector.Body).Member;
-            p.SetValue(obj, ComputeHash(obj));
+            p.SetValue(obj, ComputeHash(obj, algorithm));
         }
 
-        public static string ComputeHash<T>(this T obj) where T : IComputeHash
+        public static string ComputeHash<T>(this T obj, HashingAlgorithm algorithm = HashingAlgorithm.MD5) where T : IComputeHash
         {
             using (var ms = new MemoryStream())
             {
@@ -29,12 +30,25 @@ namespace Futilities.Hashing
 
                 formatter.Serialize(ms, dict);
 
-                using (var md = MD5.Create())
-                {
-                    var bytes = md.ComputeHash(ms.ToArray());
+                string hash = string.Empty;
 
-                    return BitConverter.ToString(bytes);
-                }
+                if (algorithm == HashingAlgorithm.MD5)
+                    using (var md = MD5.Create())
+                    {
+                        var bytes = md.ComputeHash(ms.ToArray());
+
+                        hash = BitConverter.ToString(bytes);
+                    }
+
+                if (algorithm == HashingAlgorithm.SHA1)
+                    using (var sh = SHA1.Create())
+                    {
+                        var bytes = sh.ComputeHash(ms.ToArray());
+
+                        hash = BitConverter.ToString(bytes);
+                    }
+
+                return hash;
             }
         }
 
