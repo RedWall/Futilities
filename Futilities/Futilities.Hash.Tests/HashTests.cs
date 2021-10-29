@@ -52,6 +52,37 @@ namespace Futilities.Hash.Tests
             Assert.AreEqual(expected, hash);
         }
 
+        [TestMethod]
+        [TestProperty("Expected-MD5-Hash", "D3-6B-69-53-6B-9C-C1-47-03-95-E2-C3-8A-14-1F-5A")]
+        [TestProperty("Prop1-Value", "abcdefghijklmnopqrstuvwxyz")]
+        [TestProperty("Prop2-Value", "9999")]
+        [TestProperty("Prop3-Value", "1/1/2001")]
+        public void TwoObjectsWithSamePropertyValuesReturnSameHash()
+        {
+            TryGetTestProperty(nameof(ReturnsExpectedMD5Hash), "Prop1-Value", out string p1);
+            TryGetTestProperty(nameof(ReturnsExpectedMD5Hash), "Prop2-Value", out double p2);
+            TryGetTestProperty(nameof(ReturnsExpectedMD5Hash), "Prop3-Value", out DateTime p3);
+
+            var obj = new TestObject() { Prop1 = p1, Prop2 = p2, Prop3 = p3 };
+            var obj2 = new TestObject() { Prop1 = p1, Prop2 = p2, Prop3 = p3 };
+
+            var hash = obj.ComputeHash();
+            var hash2 = obj2.ComputeHash();
+
+            Assert.AreEqual(hash, hash2);
+        }
+
+        [TestMethod]
+        public void ReturnsNullForNullObject()
+        {
+
+            TestObject obj = null;
+
+            var hash = obj.ComputeHash();
+
+            Assert.IsNull(hash);
+        }
+
         [ExcludeFromCodeCoverage]
         private bool TryGetTestProperty<T>(string methodName, string propertyName, out T propertyValue)
         {
