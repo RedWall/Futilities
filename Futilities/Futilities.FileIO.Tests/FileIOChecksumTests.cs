@@ -1,4 +1,5 @@
 ﻿using Futilities.Shared;
+using Futilities.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Futilities.FileIO.Tests
 {
 
     [TestClass]
-    public class FileIOChecksumTests
+    public class FileIOChecksumTests : TestingBase
     {
         private string GetProjectDirectory => Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
 
@@ -105,33 +106,6 @@ namespace Futilities.FileIO.Tests
             string result = value.GetFileCheckSum(HashingAlgorithm.SHA1);
 
             Assert.AreEqual(expected, result);
-        }
-
-        [ExcludeFromCodeCoverage]
-        private bool TryGetTestProperty<T>(string methodName, string propertyName, out T propertyValue)
-        {
-            try
-            {
-                Type type = GetType();
-
-                MethodInfo methodInfo = type.GetMethod(methodName);
-
-                IEnumerable<TestPropertyAttribute> attribute = methodInfo.GetCustomAttributes<TestPropertyAttribute>();
-
-                var value = attribute.FirstOrDefault(a => a.Name == propertyName)?.Value ?? null;
-
-                propertyValue = (T)Convert.ChangeType(value, typeof(T));
-
-                if (value is null)
-                    return false;
-
-                return true;
-            }
-            catch (Exception)
-            {
-                propertyValue = default;
-                return false;
-            }
         }
     }
 }
