@@ -21,6 +21,9 @@ namespace Futilities.Hashing
 
         public static string ComputeHash<T>(this T obj, HashingAlgorithm algorithm = HashingAlgorithm.MD5) where T : IComputeHash
         {
+            if (obj is null)
+                return null;
+
             using (var ms = new MemoryStream())
             {
 
