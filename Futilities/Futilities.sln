@@ -43,6 +43,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.Shared", "Futili
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.Hash.Tests", "Futilities.Hash.Tests\Futilities.Hash.Tests.csproj", "{D1C13CAD-E4A2-44DB-8276-77DAE36C79FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.Testing", "Futilities.Testing\Futilities.Testing.csproj", "{B5AD35FD-091A-49EF-8960-8AB0ED952715}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{D1C13CAD-E4A2-44DB-8276-77DAE36C79FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1C13CAD-E4A2-44DB-8276-77DAE36C79FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1C13CAD-E4A2-44DB-8276-77DAE36C79FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5AD35FD-091A-49EF-8960-8AB0ED952715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5AD35FD-091A-49EF-8960-8AB0ED952715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5AD35FD-091A-49EF-8960-8AB0ED952715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5AD35FD-091A-49EF-8960-8AB0ED952715}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

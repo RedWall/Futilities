@@ -1,16 +1,13 @@
 ﻿using Futilities.Hashing;
+using Futilities.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Dynamic;
-using System.Linq;
-using System.Reflection;
 
 namespace Futilities.Hash.Tests
 {
     [TestClass]
-    public class HashTests
+    public class HashTests : TestingBase
     {
         [TestMethod]
         [TestProperty("Expected-MD5-Hash", "D3-6B-69-53-6B-9C-C1-47-03-95-E2-C3-8A-14-1F-5A")]
@@ -83,32 +80,7 @@ namespace Futilities.Hash.Tests
             Assert.IsNull(hash);
         }
 
-        [ExcludeFromCodeCoverage]
-        private bool TryGetTestProperty<T>(string methodName, string propertyName, out T propertyValue)
-        {
-            try
-            {
-                Type type = GetType();
 
-                MethodInfo methodInfo = type.GetMethod(methodName);
-
-                IEnumerable<TestPropertyAttribute> attribute = methodInfo.GetCustomAttributes<TestPropertyAttribute>();
-
-                var value = attribute.FirstOrDefault(a => a.Name == propertyName)?.Value ?? null;
-
-                propertyValue = (T)Convert.ChangeType(value, typeof(T));
-
-                if (value is null)
-                    return false;
-
-                return true;
-            }
-            catch (Exception)
-            {
-                propertyValue = default;
-                return false;
-            }
-        }
     }
 
     public class TestObject : IComputeHash

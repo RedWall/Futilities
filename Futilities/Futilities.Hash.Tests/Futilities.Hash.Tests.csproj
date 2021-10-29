@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Futilities.Hash\Futilities.Hash.csproj" />
+    <ProjectReference Include="..\Futilities.Testing\Futilities.Testing.csproj" />
   </ItemGroup>
 
 </Project>

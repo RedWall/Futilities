@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Futilities.ObjectExtensions\Futilities.ObjectExtensions.csproj" />
+    <ProjectReference Include="..\Futilities.Testing\Futilities.Testing.csproj" />
   </ItemGroup>
 
 </Project>
