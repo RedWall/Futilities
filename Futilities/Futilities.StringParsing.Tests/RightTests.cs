@@ -8,7 +8,7 @@ namespace Futilities.StringParsing.Tests
     {
         string testString = "abcdefghij";
         [TestMethod]
-        public void Right_Returns_Null_For_Null_String()
+        public void Right_ReturnsNull_WhenStringIsNull()
         {
             string s = null;
 
@@ -18,19 +18,16 @@ namespace Futilities.StringParsing.Tests
         }
 
         [TestMethod]
-        public void Right_Returns_Full_String_When_Requested_Length_Is_Greater_Than_String_Length()
+        public void Right_ReturnsFullString_WhenRequestedLengthIsGreaterThanStringLength()
         {
-
-
             string result = testString.Right(11);
 
             Assert.AreEqual(result, testString);
         }
 
         [TestMethod]
-        public void Right_Returns_String_When_Requested_Length_Is_Less_Than_String_Length()
+        public void Right_ReturnsString_WhenRequestedLengthIsLessThanStringLength()
         {
-
             string result = testString.Right(9);
 
             Assert.AreEqual(result[0], testString[1]);

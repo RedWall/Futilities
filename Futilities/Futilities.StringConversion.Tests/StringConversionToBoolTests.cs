@@ -9,7 +9,7 @@ namespace Futilities.StringConversion.Tests
     {
 
         [TestMethod]
-        public void Generic_To_Bool_Returns_True_For_TrueString()
+        public void GenericToBool_ReturnsTrue_ForTrueString()
         {
             string value = bool.TrueString;
 
@@ -19,7 +19,7 @@ namespace Futilities.StringConversion.Tests
         }
 
         [TestMethod]
-        public void ToBool_Returns_True_For_TrueString()
+        public void ToBool_ReturnsTrue_ForTrueString()
         {
             string value = bool.TrueString;
 
@@ -29,7 +29,7 @@ namespace Futilities.StringConversion.Tests
         }
 
         [TestMethod]
-        public void ToBool_Returns_defaultValue_When_Conversion_Fails()
+        public void ToBool_ReturnsDefaultValue_WhenConversionFails()
         {
             string value = "Q";
             bool defaultValue = true;
@@ -40,7 +40,7 @@ namespace Futilities.StringConversion.Tests
         }
 
         [TestMethod]
-        public void Generic_To_Bool_Returns_defaultValue_When_Conversion_Fails()
+        public void GenericToBool_ReturnsDefaultValue_WhenConversionFails()
         {
             string value = "Q";
             bool defaultValue = true;
@@ -51,7 +51,7 @@ namespace Futilities.StringConversion.Tests
         }
 
         [TestMethod]
-        public void ToBool_Returns_True_When_alsoTrue_Contains_Value()
+        public void ToBool_ReturnsTrue_WhenAlsoTrueContainsValue()
         {
             string value = "y";
             string[] alsoTrue = { "Y", "X" };
@@ -62,7 +62,7 @@ namespace Futilities.StringConversion.Tests
         }
 
         [TestMethod]
-        public void ToBool_Returns_True_When_alsoTrue_Contains_Value_ignoreCase_False()
+        public void ToBool_ReturnsTrue_WhenAlsoTrueContainsValueAndIgnoreCaseIsFalse()
         {
             string value = "Y";
             string[] alsoTrue = { "Y", "X" };
@@ -73,7 +73,7 @@ namespace Futilities.StringConversion.Tests
         }
 
         [TestMethod]
-        public void ToBool_Returns_False_When_alsoTrue_Does_Not_Contain_Value()
+        public void ToBool_ReturnsFalse_WhenAlsoTrueDoesNotContainValue()
         {
             string value = "Y";
             string[] alsoTrue = { "Q", "X" };
@@ -84,7 +84,7 @@ namespace Futilities.StringConversion.Tests
         }
 
         [TestMethod]
-        public void ToBool_Returns_False_When_alsoTrue_Does_Not_Contain_Value_ignoreCase_False()
+        public void ToBool_ReturnsFalse_WhenAlsoTrueDoesNotContainValueAndIgnoreCaseIsFalse()
         {
             string value = "Y";
             string[] alsoTrue = { "y", "X" };

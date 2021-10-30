@@ -5,7 +5,6 @@ namespace Futilities.Temporal
 {
     public static class TemporalExtensions
     {
-
         public static bool IsBefore(this DateTime d, DateTime other)
         {
             return d.CompareTo(other) < 0;
@@ -38,8 +37,6 @@ namespace Futilities.Temporal
 
             return d.IsAfter(begin) && d.IsBefore(end);
         }
-
-
         public static bool TryParseTime(this string s, out string time)
         {
             var timerx = new Regex(@"^(?<hour>\d{1,2}):(?<minute>\d{2}):?(?<second>\d{2})?(?<mill>:?[\d\W]*)?(?<period>[AaPp][Mm])?$");
