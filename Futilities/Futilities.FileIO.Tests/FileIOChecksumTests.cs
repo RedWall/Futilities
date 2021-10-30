@@ -30,7 +30,7 @@ namespace Futilities.FileIO.Tests
         }
 
         [TestMethod]
-        [TestProperty("TestFileName", "testFile.txt")]
+        [TestProperty("TestFileName", "testfile.txt")]
         public void GetFileIOChecksum_Throws_ArgumentException()
         {
             TryGetTestProperty(nameof(GetFileIOChecksum_Throws_ArgumentException), "TestFileName", out string fileName);
@@ -75,7 +75,7 @@ namespace Futilities.FileIO.Tests
         }
 
         [TestMethod]
-        [TestProperty("TestFileName", "testFile.txt")]
+        [TestProperty("TestFileName", "testfile.txt")]
         [TestProperty("ExpectedMD5Checksum", "89-88-C8-E6-B7-96-F1-D2-22-D5-12-B6-FB-DE-B8-C3")]
         public void GetFileIOChecksum_Returns_MD5_Checksum()
         {
@@ -92,7 +92,7 @@ namespace Futilities.FileIO.Tests
         }
 
         [TestMethod]
-        [TestProperty("TestFileName", "testFile.txt")]
+        [TestProperty("TestFileName", "testfile.txt")]
         [TestProperty("ExpectedSHA1Checksum", "82-77-95-F4-B5-3F-EC-A5-D5-52-C1-38-06-D5-D0-8E-D3-18-66-A2")]
         public void GetFileIOChecksum_Returns_SHA1_Checksum()
         {
