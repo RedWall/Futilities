@@ -21,4 +21,10 @@
     <ProjectReference Include="..\Futilities.Testing\Futilities.Testing.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="testfile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
