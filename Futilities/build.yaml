@@ -7,10 +7,20 @@ name: '$(date:yyyy)$(date:.MM)$(date:.dd)$(rev:.r)'
 
 jobs:
 - job: Job_1
-  displayName: Build and Pack SHAPE.Data.District.Shared NuGet
+  displayName: Build and Pack Futilities
   pool:
-    vmImage: 'windows-latest'
+    vmImage: 'ubuntu-latest'
   steps:
+  - task: VersionDotNetCoreAssemblies@2
+    inputs:
+      Path: '$(Build.SourcesDirectory)'
+      VersionNumber: '$(Build.BuildNumber)'
+      Injectversion: False
+      VersionRegex: '\d+\.\d+\.\d+\.\d+'
+      FilenamePattern: '.csproj'
+      AddDefault: true
+      OutputVersion: 'OutputedVersion'
+  
   - task: DotNetCoreCLI@2
     displayName: 'dotnet restore'
     inputs:
@@ -23,14 +33,16 @@ jobs:
       projects: '**/*.csproj'
   
   - task: DotNetCoreCLI@2
+    displayName: 'dotnet test'
     inputs:
       command: 'test'
       projects: '**/*.Tests.csproj'
   
   - task: DotNetCoreCLI@2
+    displayName: 'dotnet pack'
     inputs:
       command: 'pack'
-      packagesToPack: '**/Futilities.Outright.csproj'
+      packagesToPack: '**/Futiities.Outright.csproj'
       nobuild: true
       includesymbols: true
       includesource: true
