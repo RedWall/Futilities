@@ -47,3 +47,10 @@ jobs:
       includesymbols: true
       includesource: true
       versioningScheme: 'byBuildNumber'
+  
+  - task: PublishBuildArtifacts@1
+    displayName: 'publish artifacts'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
