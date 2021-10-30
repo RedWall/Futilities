@@ -42,7 +42,7 @@ jobs:
     displayName: 'dotnet pack'
     inputs:
       command: 'pack'
-      packagesToPack: '**/Futiities.Outright.csproj'
+      packagesToPack: '**/Futilities.Outright.csproj'
       nobuild: true
       includesymbols: true
       includesource: true
