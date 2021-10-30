@@ -1,3 +1,10 @@
+trigger:
+  paths:
+    exclude:
+    - /README.md
+
+name: '$(date:yyyy)$(date:.MM)$(date:.dd)$(rev:.r)'
+
 jobs:
 - job: Job_1
   displayName: Build and Pack SHAPE.Data.District.Shared NuGet
@@ -8,26 +15,23 @@ jobs:
     displayName: 'dotnet restore'
     inputs:
       command: restore
-      projects: '**\*.csproj'
+      projects: '**/*.csproj'
   
   - task: DotNetCoreCLI@2
     displayName: 'dotnet build'
     inputs:
       projects: '**/*.csproj'
   
-  - task: VisualStudioTestPlatformInstaller@1
-    displayName: 'Visual Studio Test Platform Installer'
-  
-  - task: VSTest@2
-    displayName: 'Run Tests'
+  - task: DotNetCoreCLI@2
     inputs:
-      testAssemblyVer2: |
-       **\Futilities.*.Tests.dll
-       !**\obj\**
-      diagnosticsEnabled: True
+      command: 'test'
+      projects: '**/*.Tests.csproj'
   
   - task: DotNetCoreCLI@2
-    displayName: 'dotnet pack'
     inputs:
-      command: pack
-      packagesToPack: Futilities/Futiities.Outright/Futiities.Outright.csproj
+      command: 'pack'
+      packagesToPack: '**/Futilities.Outright.csproj'
+      nobuild: true
+      includesymbols: true
+      includesource: true
+      versioningScheme: 'byBuildNumber'
