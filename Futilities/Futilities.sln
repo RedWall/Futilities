@@ -41,9 +41,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.ObjectExtensions
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.Shared", "Futilities.Shared\Futilities.Shared.csproj", "{7287F88F-EE22-47A1-B17C-804E0479CC75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.Hash.Tests", "Futilities.Hash.Tests\Futilities.Hash.Tests.csproj", "{D1C13CAD-E4A2-44DB-8276-77DAE36C79FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.Hash.Tests", "Futilities.Hash.Tests\Futilities.Hash.Tests.csproj", "{D1C13CAD-E4A2-44DB-8276-77DAE36C79FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futilities.Testing", "Futilities.Testing\Futilities.Testing.csproj", "{B5AD35FD-091A-49EF-8960-8AB0ED952715}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futilities.Testing", "Futilities.Testing\Futilities.Testing.csproj", "{B5AD35FD-091A-49EF-8960-8AB0ED952715}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Root", "Root", "{EC8E7215-D34B-4539-84DA-C27CD7CEE754}"
+	ProjectSection(SolutionItems) = preProject
+		build.yaml = build.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,30 @@
+pool:
+  name: Azure Pipelines
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
+  inputs:
+    command: restore
+    projects: '**\*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    projects: '**/*.csproj'
+
+- task: VisualStudioTestPlatformInstaller@1
+  displayName: 'Visual Studio Test Platform Installer'
+
+- task: VSTest@2
+  displayName: 'Run Tests'
+  inputs:
+    testAssemblyVer2: |
+     **\Futilities.*.Tests.dll
+     !**\obj\**
+    diagnosticsEnabled: True
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack'
+  inputs:
+    command: pack
+    packagesToPack: Futilities/Futiities.Outright/Futiities.Outright.csproj
