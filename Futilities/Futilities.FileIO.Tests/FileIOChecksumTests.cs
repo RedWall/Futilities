@@ -16,7 +16,7 @@ namespace Futilities.FileIO.Tests
     [TestClass]
     public class FileIOChecksumTests : TestingBase
     {
-        private string GetProjectDirectory => Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+        private string GetProjectDirectory => Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
 
         [TestMethod]
