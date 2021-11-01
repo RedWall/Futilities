@@ -30,7 +30,7 @@ namespace Futilities.FileIO.Tests
 
         [TestMethod]
         [TestProperty("TestFileName", "testfile.txt")]
-        public void GetFileIOChecksum_Throws_ArgumentException()
+        public void GetFileChecksum_ThrowsArgumentException_WhenStringFilePathIsNull()
         {
             TryGetTestProperty(nameof(GetFileChecksum_ThrowsArgumentException_WhenStringFilePathIsNull), "TestFileName", out string fileName);
 
