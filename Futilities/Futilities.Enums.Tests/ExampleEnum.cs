@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Futilities.Enums.Tests
@@ -6,7 +6,7 @@ namespace Futilities.Enums.Tests
     enum ExampleEnum
     {
         [Display(Name = TestConstants.DISPLAY_NAME)]
-        HasDisplayNameAttribute,
+        HasDisplayAttribute,
         [Display(Description = TestConstants.DISPLAY_DESCRIPTION)]
         HasDisplayDescriptionAttribute,
         DoesNotHaveAttribute

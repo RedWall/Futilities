@@ -6,7 +6,6 @@ namespace Futilities
 {
     public class SequentialGuid
     {
-
         public DateTime SequenceStartDate { get; }
         public DateTime SequenceEndDate { get; }
 

@@ -25,9 +25,9 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void TryGetAttribute_Returns_True()
+        public void TryGetAttribute_ReturnsTrue_WhenAttributeExists()
         {
-            ExampleEnum value = ExampleEnum.HasDisplayNameAttribute;
+            ExampleEnum value = ExampleEnum.HasDisplayAttribute;
             DisplayAttribute expected = new DisplayAttribute { Name = TestConstants.DISPLAY_NAME };
 
             bool result = value.TryGetAttribute(out DisplayAttribute attribute);
@@ -37,7 +37,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void TryGetAttribute_Returns_False()
+        public void TryGetAttribute_ReturnsFalse_WhenAttributeDoesNotExist()
         {
             ExampleEnum value = ExampleEnum.DoesNotHaveAttribute;
 
@@ -48,9 +48,9 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void GetAttribute_Returns_Attribute()
+        public void GetAttribute_ReturnsAttribute_WhenAttributeExists()
         {
-            ExampleEnum value = ExampleEnum.HasDisplayNameAttribute;
+            ExampleEnum value = ExampleEnum.HasDisplayAttribute;
 
             Attribute result = value.GetAttribute<DisplayAttribute>();
 
@@ -58,7 +58,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void GetAttribute_Returns_Null()
+        public void GetAttribute_ReturnsNull_WhenAttributeDoesNotExist()
         {
             ExampleEnum value = ExampleEnum.DoesNotHaveAttribute;
 
@@ -68,7 +68,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void DescriptionOrName_Returns_DisplayDescription()
+        public void DescriptionOrName_ReturnsDisplayDescription_WhenDisplayAttributeExists()
         {
             ExampleEnum value = ExampleEnum.HasDisplayDescriptionAttribute;
 
@@ -78,9 +78,9 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void DescriptionOrName_Returns_DisplayName()
+        public void DescriptionOrName_ReturnsDisplayName_WhenDisplayAttributeExists()
         {
-            ExampleEnum value = ExampleEnum.HasDisplayNameAttribute;
+            ExampleEnum value = ExampleEnum.HasDisplayAttribute;
 
             string result = value.DescriptionOrName();
 
@@ -88,7 +88,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void DescriptionOrName_Returns_ToString_Result()
+        public void DescriptionOrName_ReturnsToStringResult_WhenDescriptionOrNameAttributesDoNotExist()
         {
             ExampleEnum value = ExampleEnum.DoesNotHaveAttribute;
 
@@ -114,7 +114,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void GetEnumValueOrNull_Returns_Example_Enum_Value()
+        public void GetEnumValueOrNull_ReturnsValue_WhenValueExists()
         {
             ExampleEnum? result = EnumExtensions.GetEnumValueOrNull<ExampleEnum>((int)ExampleEnum.DoesNotHaveAttribute);
 
@@ -122,7 +122,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void GetEnumValueOrNull_Returns_Null()
+        public void GetEnumValueOrNull_ReturnsNull_WhenValueDoesNotExist()
         {
             ExampleEnum? result = EnumExtensions.GetEnumValueOrNull<ExampleEnum>(-1);
 
@@ -130,7 +130,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void GetEnumValueOrNull_Returns_Null_On_Null_Value()
+        public void GetEnumValueOrNull_ReturnsNull_WhenValueIsNull()
         {
             ExampleEnum? result = EnumExtensions.GetEnumValueOrNull<ExampleEnum>(null);
 
@@ -138,7 +138,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void GetEnumValueOrNull_Throws_ArgumentException()
+        public void GetEnumValueOrNull_ThrowsArgumentException_WhenTypeIsNotAnEnum()
         {
             Assert.ThrowsException<ArgumentException>(() =>
             {
@@ -147,7 +147,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void GetEnumValueOrNull_Extension_Returns_Enum_Value()
+        public void IntegerGetEnumValueOrNull_ReturnsEnumValue_WhenValueExists()
         {
             int integer = 2;
 
@@ -158,7 +158,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void GetEnumValueOrNull_Extension_Returns_Null()
+        public void IntegerGetEnumValueOrNull_ReturnsNull_WhenValueDoesNotExist()
         {
             int integer = -1;
             ExampleEnum? result = integer.GetEnumValueOrNull<ExampleEnum>();
@@ -167,7 +167,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void GetEnumValueOrNull_Extension_Returns_Null_On_Null_Value()
+        public void IntegerGetEnumValueOrNull_ReturnsNull_WhenIntegerIsNull()
         {
             int? integer = null;
             ExampleEnum? result = integer.GetEnumValueOrNull<ExampleEnum>();
@@ -176,7 +176,7 @@ namespace Futilities.Enums.Tests
         }
 
         [TestMethod]
-        public void GetEnumValueOrNull_Extension_Throws_ArgumentException()
+        public void IntegerGetEnumValueOrNull_ThrowsArgumentException_WhenTypeIsNotAnEnum()
         {
             Assert.ThrowsException<ArgumentException>(() =>
             {

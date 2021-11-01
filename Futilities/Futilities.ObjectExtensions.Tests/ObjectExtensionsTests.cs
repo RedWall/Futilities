@@ -13,9 +13,9 @@ namespace Futilities.ObjectExtensions.Tests
     {
         [TestMethod]
         [TestProperty("FooPropertyValue", "bar")]
-        public void SetProperty_Extension_Sets_Property()
+        public void SetProperty_SetsProperty()
         {
-            TryGetTestProperty(nameof(SetProperty_Extension_Sets_Property), "FooPropertyValue", out string fooPropertyValue);
+            TryGetTestProperty(nameof(SetProperty_SetsProperty), "FooPropertyValue", out string fooPropertyValue);
 
             var testObject = new TestClass();
 
@@ -26,9 +26,9 @@ namespace Futilities.ObjectExtensions.Tests
 
         [TestMethod]
         [TestProperty("FooPropertyValue", "bar")]
-        public void GetValue_Extension_Returns_Value()
+        public void GetValue_ReturnsPropertyValue()
         {
-            TryGetTestProperty(nameof(GetValue_Extension_Returns_Value), "FooPropertyValue", out string fooPropertyValue);
+            TryGetTestProperty(nameof(GetValue_ReturnsPropertyValue), "FooPropertyValue", out string fooPropertyValue);
 
             var testObject = new TestClass { Foo = fooPropertyValue };
 

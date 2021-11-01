@@ -10,7 +10,7 @@ namespace Futilities.StringParsing.Tests
         string testString = "abcdefghij";
 
         [TestMethod]
-        public void Left_Returns_Null_For_Null_String()
+        public void Left_ReturnsNull_WhenStringIsNull()
         {
             string s = null;
 
@@ -20,17 +20,15 @@ namespace Futilities.StringParsing.Tests
         }
 
         [TestMethod]
-        public void Left_Returns_Full_String_When_Requested_Length_Is_Greater_Than_String_Length()
+        public void Left_ReturnsFullString_WhenRequestedLengthIsGreaterThanStringLength()
         {
-            
-
             string result = testString.Left(11);
 
             Assert.AreEqual(result, testString);
         }
 
         [TestMethod]
-        public void Left_Returns_String_When_Requested_Length_Is_Less_Than_String_Length()
+        public void Left_ReturnsString_WhenRequestedLengthIsLessThanStringLength()
         {
 
             string result = testString.Left(9);
