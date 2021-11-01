@@ -1,7 +1,7 @@
 Futilities
 ========
 
-[<img src="https://teamredwall.visualstudio.com/_apis/public/build/definitions/199b832b-e1af-47fc-90a9-2ef84f3f96db/21/badge"/>](https://teamredwall.visualstudio.com/Futilities/_build/index?definitionId=21)
+[![Build Status](https://dev.azure.com/teamredwall/Futilities/_apis/build/status/RedWall.Futilities?branchName=main)](https://dev.azure.com/teamredwall/Futilities/_build/latest?definitionId=82&branchName=main)
 
 Collection of helpers, extentions and random code bits that I keep copying from project to project.
 
