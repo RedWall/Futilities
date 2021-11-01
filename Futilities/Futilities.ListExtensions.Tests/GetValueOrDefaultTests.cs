@@ -7,7 +7,7 @@ namespace Futilities.ListExtensions.Tests
     public class GetValueOrDefaultTests
     {
         [TestMethod]
-        public void Returns_Correct_Element()
+        public void GetValueOrDefault_ReturnsCorrectElement_WhenIndexExists()
         {
             var l = new List<int> { 1, 2, 3, 4, 5 };
 
@@ -17,7 +17,7 @@ namespace Futilities.ListExtensions.Tests
         }
 
         [TestMethod]
-        public void Returns_Default_If_Requested_Element_Does_Not_Exist()
+        public void GetValueOrDefault_ReturnsDefaultValue_WhenIndexDoesNotExist()
         {
             var l = new List<int> { 1, 2, 3, 4, 5 };
 
@@ -27,7 +27,7 @@ namespace Futilities.ListExtensions.Tests
         }
 
         [TestMethod]
-        public void Returns_Supplied_Default_If_Requested_Element_Does_Not_Exist()
+        public void GetValueOrDefault_ReturnsSuppliedDefault_WhenIndexDoesNotExist()
         {
             var l = new List<int> { 1, 2, 3, 4, 5 };
 

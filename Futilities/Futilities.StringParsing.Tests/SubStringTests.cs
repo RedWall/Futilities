@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
 namespace Futilities.StringParsing.Tests
 {
     [TestClass]
@@ -8,7 +7,7 @@ namespace Futilities.StringParsing.Tests
     {
         string testString = "abcdefghij";
         [TestMethod]
-        public void SafeSubstring_Returns_Null_For_Null_String()
+        public void SafeSubstring_ReturnsNull_WhenStringIsNull()
         {
             string s = null;
 
@@ -18,7 +17,7 @@ namespace Futilities.StringParsing.Tests
         }
 
         [TestMethod]
-        public void SafeSubstring_Returns_Full_String_When_Requested_Length_Is_Greater_Than_String_Length()
+        public void SafeSubstring_ReturnsFullString_WhenRequestedLengthIsGreaterThanStringLength()
         {
             string result = testString.SafeSubstring(0,12);
 
@@ -26,9 +25,8 @@ namespace Futilities.StringParsing.Tests
         }
 
         [TestMethod]
-        public void SafeSubstring_Returns_String_When_Requested_Length_Is_Less_Than_String_Length()
+        public void SafeSubstring_ReturnsString_WhenRequestedLengthIsLessThanStringLength()
         {
-
             string result = testString.SafeSubstring(2, 6);
 
             Assert.AreEqual(result.Length, 6);
@@ -37,15 +35,13 @@ namespace Futilities.StringParsing.Tests
         }
 
         [TestMethod]
-        public void SafeSubstring_Returns_String_When_Requested_No_Lenght_Is_Given()
+        public void SafeSubstring_ReturnsString_WhenLengthIsNotProvided()
         {
-
             string result = testString.SafeSubstring(1);
 
             Assert.AreEqual(result.Length, 9);
 
             Assert.AreEqual(result[0], testString[1]);
         }
-
     }
 }

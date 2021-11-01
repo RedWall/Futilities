@@ -43,7 +43,6 @@ namespace Futilities.ObjectExtensions
 
         public static V GetValue<T, V>(this T obj, Expression<Func<T, V>> selector)
         {
-
             V value = default;
 
             object target = obj;
