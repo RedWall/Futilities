@@ -16,9 +16,7 @@ namespace Futilities.FileIO.Tests
     [TestClass]
     public class FileIOChecksumTests : TestingBase
     {
-        //private string GetProjectDirectory => Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-        private string GetProjectDirectory => Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
+        private string GetProjectDirectory => Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
         [TestMethod]
         public void GetFileChecksum_ThrowsArgumentNullException_WhenFileInfoIsNull()
@@ -31,7 +29,7 @@ namespace Futilities.FileIO.Tests
         }
 
         [TestMethod]
-        [TestProperty("TestFileName", "testFile.txt")]
+        [TestProperty("TestFileName", "testfile.txt")]
         public void GetFileChecksum_ThrowsArgumentException_WhenStringFilePathIsNull()
         {
             TryGetTestProperty(nameof(GetFileChecksum_ThrowsArgumentException_WhenStringFilePathIsNull), "TestFileName", out string fileName);
@@ -76,7 +74,7 @@ namespace Futilities.FileIO.Tests
         }
 
         [TestMethod]
-        [TestProperty("TestFileName", "testFile.txt")]
+        [TestProperty("TestFileName", "testfile.txt")]
         [TestProperty("ExpectedMD5Checksum", "89-88-C8-E6-B7-96-F1-D2-22-D5-12-B6-FB-DE-B8-C3")]
         public void GetFileChecksum_ReturnsMD5Checksum_WhenAlgorithmIsMD5()
         {
@@ -93,7 +91,7 @@ namespace Futilities.FileIO.Tests
         }
 
         [TestMethod]
-        [TestProperty("TestFileName", "testFile.txt")]
+        [TestProperty("TestFileName", "testfile.txt")]
         [TestProperty("ExpectedSHA1Checksum", "82-77-95-F4-B5-3F-EC-A5-D5-52-C1-38-06-D5-D0-8E-D3-18-66-A2")]
         public void GetFileChecksum_ReturnsSHA1Checksum_WhenAlgorithmIsSHA1()
         {

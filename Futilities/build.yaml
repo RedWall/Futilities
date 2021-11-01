@@ -1,0 +1,56 @@
+trigger:
+  paths:
+    exclude:
+    - /README.md
+
+name: '$(date:yyyy)$(date:.MM)$(date:.dd)$(rev:.r)'
+
+jobs:
+- job: Job_1
+  displayName: Build and Pack Futilities
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - task: VersionDotNetCoreAssemblies@2
+    inputs:
+      Path: '$(Build.SourcesDirectory)'
+      VersionNumber: '$(Build.BuildNumber)'
+      Injectversion: False
+      VersionRegex: '\d+\.\d+\.\d+\.\d+'
+      FilenamePattern: '.csproj'
+      AddDefault: true
+      OutputVersion: 'OutputedVersion'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet restore'
+    inputs:
+      command: restore
+      projects: '**/*.csproj'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet build'
+    inputs:
+      projects: '**/*.csproj'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet test'
+    inputs:
+      command: 'test'
+      projects: '**/*.Tests.csproj'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet pack'
+    inputs:
+      command: 'pack'
+      packagesToPack: '**/Futilities.Outright.csproj'
+      nobuild: true
+      includesymbols: true
+      includesource: true
+      versioningScheme: 'byBuildNumber'
+  
+  - task: PublishBuildArtifacts@1
+    displayName: 'publish artifacts'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
