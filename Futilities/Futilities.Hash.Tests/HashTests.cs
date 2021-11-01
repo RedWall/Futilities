@@ -1,6 +1,8 @@
 ﻿using Futilities.Hashing;
 using Futilities.Testing;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using System;
 using System.Dynamic;
 
@@ -14,17 +16,17 @@ namespace Futilities.Hash.Tests
         [TestProperty("Prop1-Value", "abcdefghijklmnopqrstuvwxyz")]
         [TestProperty("Prop2-Value", "9999")]
         [TestProperty("Prop3-Value", "1/1/2001")]
-        public void ReturnsExpectedMD5Hash()
+        public void ComputeHash_ReturnsExpectedMD5Hash()
         {
-            TryGetTestProperty(nameof(ReturnsExpectedMD5Hash), "Prop1-Value", out string p1);
-            TryGetTestProperty(nameof(ReturnsExpectedMD5Hash), "Prop2-Value", out double p2);
-            TryGetTestProperty(nameof(ReturnsExpectedMD5Hash), "Prop3-Value", out DateTime p3);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedMD5Hash), "Prop1-Value", out string p1);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedMD5Hash), "Prop2-Value", out double p2);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedMD5Hash), "Prop3-Value", out DateTime p3);
 
             var obj = new TestObject() { Prop1 = p1, Prop2 = p2, Prop3 = p3 };
 
             var hash = obj.ComputeHash();
 
-            TryGetTestProperty(nameof(ReturnsExpectedMD5Hash), "Expected-MD5-Hash", out string expected);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedMD5Hash), "Expected-MD5-Hash", out string expected);
 
             Assert.AreEqual(expected, hash);
         }
@@ -34,17 +36,17 @@ namespace Futilities.Hash.Tests
         [TestProperty("Prop1-Value", "abcdefghijklmnopqrstuvwxyz")]
         [TestProperty("Prop2-Value", "9999")]
         [TestProperty("Prop3-Value", "1/1/2001")]
-        public void ReturnsExpectedSHA1Hash()
+        public void ComputeHash_ReturnsExpectedSHA1Hash()
         {
-            TryGetTestProperty(nameof(ReturnsExpectedSHA1Hash), "Prop1-Value", out string p1);
-            TryGetTestProperty(nameof(ReturnsExpectedSHA1Hash), "Prop2-Value", out double p2);
-            TryGetTestProperty(nameof(ReturnsExpectedSHA1Hash), "Prop3-Value", out DateTime p3);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedSHA1Hash), "Prop1-Value", out string p1);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedSHA1Hash), "Prop2-Value", out double p2);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedSHA1Hash), "Prop3-Value", out DateTime p3);
 
             var obj = new TestObject() { Prop1 = p1, Prop2 = p2, Prop3 = p3 };
 
             var hash = obj.ComputeHash(Shared.HashingAlgorithm.SHA1);
 
-            TryGetTestProperty(nameof(ReturnsExpectedSHA1Hash), "Expected-SHA1-Hash", out string expected);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedSHA1Hash), "Expected-SHA1-Hash", out string expected);
 
             Assert.AreEqual(expected, hash);
         }
@@ -54,11 +56,11 @@ namespace Futilities.Hash.Tests
         [TestProperty("Prop1-Value", "abcdefghijklmnopqrstuvwxyz")]
         [TestProperty("Prop2-Value", "9999")]
         [TestProperty("Prop3-Value", "1/1/2001")]
-        public void TwoObjectsWithSamePropertyValuesReturnSameHash()
+        public void ComputeHash_ReturnsSameHash_WhenTwoObjectsContainSamePropertyValues()
         {
-            TryGetTestProperty(nameof(ReturnsExpectedMD5Hash), "Prop1-Value", out string p1);
-            TryGetTestProperty(nameof(ReturnsExpectedMD5Hash), "Prop2-Value", out double p2);
-            TryGetTestProperty(nameof(ReturnsExpectedMD5Hash), "Prop3-Value", out DateTime p3);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedMD5Hash), "Prop1-Value", out string p1);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedMD5Hash), "Prop2-Value", out double p2);
+            TryGetTestProperty(nameof(ComputeHash_ReturnsExpectedMD5Hash), "Prop3-Value", out DateTime p3);
 
             var obj = new TestObject() { Prop1 = p1, Prop2 = p2, Prop3 = p3 };
             var obj2 = new TestObject() { Prop1 = p1, Prop2 = p2, Prop3 = p3 };
@@ -70,9 +72,8 @@ namespace Futilities.Hash.Tests
         }
 
         [TestMethod]
-        public void ReturnsNullForNullObject()
+        public void ComputeHash_ReturnsNull_WhenObjectIsNull()
         {
-
             TestObject obj = null;
 
             var hash = obj.ComputeHash();
@@ -80,7 +81,27 @@ namespace Futilities.Hash.Tests
             Assert.IsNull(hash);
         }
 
+        [TestMethod]
+        public void ToSHA256_ThrowsException_WhenValueIsNull()
+        {
+            var exception = Assert.ThrowsException<ArgumentNullException>(() =>
+            {
+                string nullValue = null;
 
+                var actual = nullValue.ToSHA256();
+            });
+        }
+
+        [TestMethod]
+        public void ToSHA1_ThrowsException_WhenValueIsNull()
+        {
+            var exception = Assert.ThrowsException<ArgumentNullException>(() =>
+            {
+                string nullValue = null;
+
+                var actual = nullValue.ToSHA1();
+            });
+        }
     }
 
     public class TestObject : IComputeHash
@@ -88,7 +109,6 @@ namespace Futilities.Hash.Tests
         public string Prop1 { get; set; }
         public double Prop2 { get; set; }
         public DateTime Prop3 { get; set; }
-
         public dynamic GetObjectToCompute()
         {
             dynamic exp = new ExpandoObject();
@@ -100,6 +120,4 @@ namespace Futilities.Hash.Tests
             return exp;
         }
     }
-
-
 }

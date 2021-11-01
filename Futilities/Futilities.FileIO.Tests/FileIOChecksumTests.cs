@@ -18,9 +18,8 @@ namespace Futilities.FileIO.Tests
     {
         private string GetProjectDirectory => Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-
         [TestMethod]
-        public void GetFileIOChecksum_Throws_ArgumentNullException()
+        public void GetFileChecksum_ThrowsArgumentNullException_WhenFileInfoIsNull()
         {
             Assert.ThrowsException<ArgumentNullException>(() =>
             {
@@ -33,7 +32,7 @@ namespace Futilities.FileIO.Tests
         [TestProperty("TestFileName", "testfile.txt")]
         public void GetFileIOChecksum_Throws_ArgumentException()
         {
-            TryGetTestProperty(nameof(GetFileIOChecksum_Throws_ArgumentException), "TestFileName", out string fileName);
+            TryGetTestProperty(nameof(GetFileChecksum_ThrowsArgumentException_WhenStringFilePathIsNull), "TestFileName", out string fileName);
 
             Assert.ThrowsException<ArgumentException>(() =>
             {
@@ -46,9 +45,9 @@ namespace Futilities.FileIO.Tests
 
         [TestMethod]
         [TestProperty("FakeFileName", "Fake.fake")]
-        public void GetFileIOChecksum_Throws_FileNotFoundException()
+        public void GetFileChecksum_ThrowsFileNotFoundException_WhenFileInfoDoesNotExist()
         {
-            TryGetTestProperty(nameof(GetFileIOChecksum_Throws_FileNotFoundException), "FakeFileName", out string fakeFileName);
+            TryGetTestProperty(nameof(GetFileChecksum_ThrowsFileNotFoundException_WhenFileInfoDoesNotExist), "FakeFileName", out string fakeFileName);
 
             Assert.ThrowsException<FileNotFoundException>(() =>
             {
@@ -60,10 +59,10 @@ namespace Futilities.FileIO.Tests
         [TestMethod]
         [TestProperty("TestFileName", "testfile.txt")]
         [TestProperty("ExpectedChecksum", "89-88-C8-E6-B7-96-F1-D2-22-D5-12-B6-FB-DE-B8-C3")]
-        public void GetFileIOChecksum_Returns_Checksum()
+        public void GetFileChecksum_ReturnsMD5Checksum_WhenNoAlgorithmProvided()
         {
-            TryGetTestProperty(nameof(GetFileIOChecksum_Returns_Checksum), "TestFileName", out string fileName);
-            TryGetTestProperty(nameof(GetFileIOChecksum_Returns_Checksum), "ExpectedChecksum", out string expected);
+            TryGetTestProperty(nameof(GetFileChecksum_ReturnsMD5Checksum_WhenNoAlgorithmProvided), "TestFileName", out string fileName);
+            TryGetTestProperty(nameof(GetFileChecksum_ReturnsMD5Checksum_WhenNoAlgorithmProvided), "ExpectedChecksum", out string expected);
 
             string filePath = Path.Combine(GetProjectDirectory, fileName);
 
@@ -77,10 +76,10 @@ namespace Futilities.FileIO.Tests
         [TestMethod]
         [TestProperty("TestFileName", "testfile.txt")]
         [TestProperty("ExpectedMD5Checksum", "89-88-C8-E6-B7-96-F1-D2-22-D5-12-B6-FB-DE-B8-C3")]
-        public void GetFileIOChecksum_Returns_MD5_Checksum()
+        public void GetFileChecksum_ReturnsMD5Checksum_WhenAlgorithmIsMD5()
         {
-            TryGetTestProperty(nameof(GetFileIOChecksum_Returns_MD5_Checksum), "TestFileName", out string fileName);
-            TryGetTestProperty(nameof(GetFileIOChecksum_Returns_MD5_Checksum), "ExpectedMD5Checksum", out string expected);
+            TryGetTestProperty(nameof(GetFileChecksum_ReturnsMD5Checksum_WhenAlgorithmIsMD5), "TestFileName", out string fileName);
+            TryGetTestProperty(nameof(GetFileChecksum_ReturnsMD5Checksum_WhenAlgorithmIsMD5), "ExpectedMD5Checksum", out string expected);
 
             string filePath = Path.Combine(GetProjectDirectory, fileName);
 
@@ -94,10 +93,10 @@ namespace Futilities.FileIO.Tests
         [TestMethod]
         [TestProperty("TestFileName", "testfile.txt")]
         [TestProperty("ExpectedSHA1Checksum", "82-77-95-F4-B5-3F-EC-A5-D5-52-C1-38-06-D5-D0-8E-D3-18-66-A2")]
-        public void GetFileIOChecksum_Returns_SHA1_Checksum()
+        public void GetFileChecksum_ReturnsSHA1Checksum_WhenAlgorithmIsSHA1()
         {
-            TryGetTestProperty(nameof(GetFileIOChecksum_Returns_SHA1_Checksum), "TestFileName", out string fileName);
-            TryGetTestProperty(nameof(GetFileIOChecksum_Returns_SHA1_Checksum), "ExpectedSHA1Checksum", out string expected);
+            TryGetTestProperty(nameof(GetFileChecksum_ReturnsSHA1Checksum_WhenAlgorithmIsSHA1), "TestFileName", out string fileName);
+            TryGetTestProperty(nameof(GetFileChecksum_ReturnsSHA1Checksum_WhenAlgorithmIsSHA1), "ExpectedSHA1Checksum", out string expected);
 
             string filePath = Path.Combine(GetProjectDirectory, fileName);
 
