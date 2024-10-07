@@ -1,13 +1,12 @@
 ﻿using Futilities.Shared;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 
 namespace Futilities.Hashing
 {
@@ -24,34 +23,26 @@ namespace Futilities.Hashing
             if (obj is null)
                 return null;
 
-            using (var ms = new MemoryStream())
-            {
-                var formatter = new BinaryFormatter();
+            var dict = (obj.GetObjectToCompute() as IDictionary<string, object>).ToDictionary(x => x.Key, x => x.Value);
+            var bytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(dict));
 
-                var dict = (obj.GetObjectToCompute() as IDictionary<string, object>).ToDictionary(x => x.Key, x => x.Value);
+            string hash = string.Empty;
 
-                formatter.Serialize(ms, dict);
+            if (algorithm == HashingAlgorithm.MD5)
+                using (var md = MD5.Create())
+                {
+                    var hashBytes = md.ComputeHash(bytes);
+                    hash = BitConverter.ToString(hashBytes);
+                }
 
-                string hash = string.Empty;
+            if (algorithm == HashingAlgorithm.SHA1)
+                using (var sh = SHA1.Create())
+                {
+                    var hashBytes = sh.ComputeHash(bytes);
+                    hash = BitConverter.ToString(hashBytes);
+                }
 
-                if (algorithm == HashingAlgorithm.MD5)
-                    using (var md = MD5.Create())
-                    {
-                        var bytes = md.ComputeHash(ms.ToArray());
-
-                        hash = BitConverter.ToString(bytes);
-                    }
-
-                if (algorithm == HashingAlgorithm.SHA1)
-                    using (var sh = SHA1.Create())
-                    {
-                        var bytes = sh.ComputeHash(ms.ToArray());
-
-                        hash = BitConverter.ToString(bytes);
-                    }
-
-                return hash;
-            }
+            return hash;
         }
 
         /// <summary>
