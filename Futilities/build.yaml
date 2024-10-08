@@ -43,7 +43,7 @@ jobs:
     inputs:
       command: 'pack'
       packagesToPack: '**/Futilities.Outright.csproj'
-      nobuild: true
+      nobuild: false
       includesymbols: true
       includesource: true
       versioningScheme: 'byBuildNumber'

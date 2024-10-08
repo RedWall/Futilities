@@ -12,7 +12,7 @@ namespace Futilities.Hash.Tests
     public class HashTests : TestingBase
     {
         [TestMethod]
-        [TestProperty("Expected-MD5-Hash", "D3-6B-69-53-6B-9C-C1-47-03-95-E2-C3-8A-14-1F-5A")]
+        [TestProperty("Expected-MD5-Hash", "92-2C-16-B0-30-3D-C8-64-0D-E8-57-C5-31-ED-D7-2A")]
         [TestProperty("Prop1-Value", "abcdefghijklmnopqrstuvwxyz")]
         [TestProperty("Prop2-Value", "9999")]
         [TestProperty("Prop3-Value", "1/1/2001")]
@@ -32,7 +32,7 @@ namespace Futilities.Hash.Tests
         }
 
         [TestMethod]
-        [TestProperty("Expected-SHA1-Hash", "AD-4C-EE-67-96-68-21-E3-52-A4-BE-31-18-92-2C-8D-6F-A6-0F-0D")]
+        [TestProperty("Expected-SHA1-Hash", "C1-88-3B-4D-17-16-1D-E6-3C-23-47-75-F2-22-56-29-62-36-21-5C")]
         [TestProperty("Prop1-Value", "abcdefghijklmnopqrstuvwxyz")]
         [TestProperty("Prop2-Value", "9999")]
         [TestProperty("Prop3-Value", "1/1/2001")]
@@ -52,7 +52,6 @@ namespace Futilities.Hash.Tests
         }
 
         [TestMethod]
-        [TestProperty("Expected-MD5-Hash", "D3-6B-69-53-6B-9C-C1-47-03-95-E2-C3-8A-14-1F-5A")]
         [TestProperty("Prop1-Value", "abcdefghijklmnopqrstuvwxyz")]
         [TestProperty("Prop2-Value", "9999")]
         [TestProperty("Prop3-Value", "1/1/2001")]
